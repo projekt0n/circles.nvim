@@ -59,8 +59,8 @@ end
 ---@param config Cfg
 M.load = function(config)
   override_devicons(config)
-  if config.nvimtree then override_nvimtree_icons(config) end
-  if config.lsp then override_lsp_diagnostic_text(config) end
+  override_nvimtree_icons(config)
+  if (config.lsp) then override_lsp_diagnostic_text(config) end
 end
 
 return M

@@ -3,7 +3,7 @@ local util = require("circles.util")
 ---@class Cfg
 local config
 
-config = {icons = {empty = "", filled = "", lsp_prefix = ""}, lsp = true, nvimtree = true}
+config = {icons = {empty = "", filled = "", lsp_prefix = ""}, lsp = true}
 
 ---Apply custom configurations to projekt0n/circles.nvim plugin
 ---@param userConfig Cfg
