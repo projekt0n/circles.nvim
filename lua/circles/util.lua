@@ -27,22 +27,23 @@ end
 ---override config.empty_icon and config.filled_icon to 'kyazdani42/nvim-tree.lua' plugin
 ---@param config Cfg
 local override_nvimtree_icons = function(config)
-  local installed, _ = pcall(require, "nvim-tree")
-  if (installed) then
-    local icons = config.icons
-    vim.g.nvim_tree_icons = {
+  -- Make nvim-tree icons visible
+  vim.g.nvim_tree_show_icons = {git = 0, folders = 1, files = 1, folder_arrows = 1}
+
+  -- overriding nvim-tree icons
+  local icons = config.icons
+  vim.g.nvim_tree_icons = {
+    default = icons.empty,
+    symlink = icons.empty,
+    folder = {
       default = icons.empty,
+      open = icons.filled,
+      empty = icons.empty,
+      empty_open = icons.filled,
       symlink = icons.empty,
-      folder = {
-        default = icons.empty,
-        open = icons.filled,
-        empty = icons.empty,
-        empty_open = icons.filled,
-        symlink = icons.empty,
-        symlink_open = icons.filled
-      }
+      symlink_open = icons.filled
     }
-  end
+  }
 end
 
 ---override lsp diagnostic prefix icon
