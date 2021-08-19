@@ -1,7 +1,7 @@
 local config_module = require("circles.config")
 local util = require("circles.util")
 
-M = {}
+local M = {}
 
 ---Setup your uniform icons for neovim with projekt0n/circles.nvim
 ---@param userConfig Cfg

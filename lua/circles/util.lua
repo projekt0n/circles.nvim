@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 ---Throw error with 'projekt0n/circles.nvim: ' prefix
 ---@param message string
