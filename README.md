@@ -1,11 +1,10 @@
 <p align="center">
-  <img src="https://imgur.com/qxAhcmx.png" alt="circles.nvim" width="200"/>
+  <img src="https://imgur.com/qxAhcmx.png" alt="circles.nvim" width="150"/>
 </p>
 
 ### Status
 
-<!-- [![Linting]()]() -->
-
+[![Linting](https://github.com/projekt0n/circles.nvim/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions)
 [![Twitter](https://img.shields.io/badge/twitter-projekt0n-blue)](https://twitter.com/projekt0n)
 
 ## Features
@@ -67,3 +66,39 @@ require("circles").setup({
   lsp = true
 })
 ```
+
+## Screenshots 📺
+
+<p align="center">
+  <img src="https://imgur.com/CdPiq3d.png" alt="circles.nvim Preview"/>
+</p>
+
+### Neovim LSP diagnostic virtual-text icon
+
+```
+require("circles").setup({
+  lsp = false
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/mHMzgJj.png" alt="circles.nvim LSP virtual-text"/>
+</p>
+
+### [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+
+<p align="center">
+  <img src="https://imgur.com/mqur6zW.png" alt="circles.nvim with telescpe"/>
+</p>
+
+## Useful Links
+
+- Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
+- Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
+- Theme: [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme)
+- config: [ful1e5/dotfiles](https://github.com/ful1e5/dotfiles)
+
+<!-- Ninja  -->
+<p align="center">
+  <h3 align="center">|| || ||</h1>
+</p>
