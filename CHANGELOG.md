@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Filled circles docs added inside README.md
+
+### Changed
+
+-
+
+## [v1.0.0] - 23 Aug 2021
+
+### Added
+
 - Initial release 🎊
 
-[unreleased]: https://github.com/projekt0n/circles.nvim/tree/main
+[unreleased]: https://github.com/projekt0n/circles.nvim/compare/v1.0.0...main
+[v1.0.0]: https://github.com/projekt0n/circles.nvim/tree/v1.0.0

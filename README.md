@@ -69,34 +69,60 @@ require("circles").setup({
 
 ## Screenshots 📺
 
+- Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
+- Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
+- Themes: [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme) & [ful1e5/onedark.nvim](https://github.com/ful1e5/onedark.nvim)
+- config: [ful1e5/dotfiles](https://github.com/ful1e5/dotfiles)
+
 <p align="center">
-  <img src="https://imgur.com/CdPiq3d.png" alt="circles.nvim Preview"/>
+  <img src="https://imgur.com/nPq5HZT.png" alt="circles.nvim preview"/>
+</p>
+
+```lua
+require("circles").setup({
+  icons = {
+    empty = "",
+    filled = "",
+    lsp_prefix = ""
+  },
+  lsp = true
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/iJtbXo7.png" alt="circles.nvim filled circles preview"/>
 </p>
 
 ### Neovim LSP diagnostic virtual-text icon
 
-```
+```lua
 require("circles").setup({
   lsp = false
 })
 ```
 
 <p align="center">
-  <img src="https://imgur.com/mHMzgJj.png" alt="circles.nvim LSP virtual-text"/>
+  <img src="https://imgur.com/0X4lKFW.png" alt="circles.nvim LSP virtual-text"/>
+</p>
+
+```lua
+require("circles").setup({
+  icons = {
+    lsp_prefix = ""
+  },
+  lsp = true
+})
+```
+
+<p align="center">
+  <img src="https://imgur.com/Vlvlpr9.png" alt="circles.nvim Customize LSP virtual-text"/>
 </p>
 
 ### [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 
 <p align="center">
-  <img src="https://imgur.com/mqur6zW.png" alt="circles.nvim with telescpe"/>
+  <img src="https://imgur.com/EN5CdtO.png" alt="circles.nvim with telescpe"/>
 </p>
-
-## Useful Links
-
-- Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
-- Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
-- Theme: [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme)
-- config: [ful1e5/dotfiles](https://github.com/ful1e5/dotfiles)
 
 <!-- Ninja  -->
 <p align="center">
