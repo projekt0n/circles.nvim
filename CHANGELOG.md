@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Filled circles docs added inside README.md
+- docs: Filled circles docs added inside README.md
 
 ### Changed
 
--
+- docs: logo removed from `README.md`
 
 ## [v1.0.0] - 23 Aug 2021
 

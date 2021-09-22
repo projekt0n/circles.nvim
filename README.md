@@ -1,8 +1,6 @@
-<p align="center">
-  <img src="https://imgur.com/qxAhcmx.png" alt="circles.nvim" width="150"/>
-</p>
+# circles.nvim
 
-### Status
+uniform icons for neovim
 
 [![Linting](https://github.com/projekt0n/circles.nvim/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions)
 [![Twitter](https://img.shields.io/badge/twitter-projekt0n-blue)](https://twitter.com/projekt0n)
