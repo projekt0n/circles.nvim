@@ -122,7 +122,6 @@ require("circles").setup({
   <img src="https://imgur.com/EN5CdtO.png" alt="circles.nvim with telescpe"/>
 </p>
 
-
 ## Contributing
 
 Check [CONTRIBUTING.md](./CONTRIBUTING.md), any suggestions for features and contributions to the continuing code masterelopment can be made via the issue tracker or code contributions via a `Fork` & `Pull requests`.
