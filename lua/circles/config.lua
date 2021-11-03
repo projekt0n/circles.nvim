@@ -1,14 +1,14 @@
 local util = require("circles.util")
 
----@class Cfg
-local config
-
-config = {icons = {empty = "", filled = "", lsp_prefix = ""}, lsp = true}
+---@class circles.Config
+---@field icons table<string,string>
+---@field lsp boolean
+local config = {icons = {empty = "", filled = "", lsp_prefix = ""}, lsp = true}
 
 ---Apply custom configurations to projekt0n/circles.nvim plugin
----@param userConfig Cfg
-local function applyConfiguration(userConfig)
-  for key, value in pairs(userConfig) do
+---@param user_config circles.Config
+local function apply_configuration(user_config)
+  for key, value in pairs(user_config) do
     if value ~= nil then
       if config[key] ~= nil then
         config[key] = value
@@ -19,4 +19,4 @@ local function applyConfiguration(userConfig)
   end
 end
 
-return {config = config, applyConfiguration = applyConfiguration}
+return {config = config, apply_configuration = apply_configuration}

@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - docs: Filled circles docs added inside README.md
+- docs: make code readable
+- refactor: all functions and varaible in `snake_case`
 
 ### Changed
 
