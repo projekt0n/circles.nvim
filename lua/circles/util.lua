@@ -4,13 +4,10 @@ local M = {}
 ---@param message string
 M.error = function(message)
   error("projekt0n/circles.nvim: " .. message)
-  -- vim.schedule(function()
-  --   vim.api.nvim_err_writeln("projekt0n/circles.nvim: " .. message)
-  -- end)
 end
 
 ---override config.empty_icon to 'kyazdani42/nvim-web-devicons' plugin
----@param config Cfg
+---@param config circles.Config
 local override_devicons = function(config)
   local installed, dev_icons = pcall(require, "nvim-web-devicons")
   if (installed) then
@@ -25,7 +22,7 @@ local override_devicons = function(config)
 end
 
 ---override config.empty_icon and config.filled_icon to 'kyazdani42/nvim-tree.lua' plugin
----@param config Cfg
+---@param config circles.Config
 local override_nvimtree_icons = function(config)
   -- Make nvim-tree icons visible
   vim.g.nvim_tree_show_icons = {git = 0, folders = 1, files = 1, folder_arrows = 1}
@@ -47,7 +44,7 @@ local override_nvimtree_icons = function(config)
 end
 
 ---override lsp diagnostic prefix icon
----@param config Cfg
+---@param config circles.Config
 local override_lsp_diagnostic_text = function(config)
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = {prefix = config.icons.lsp_prefix},
@@ -57,7 +54,7 @@ local override_lsp_diagnostic_text = function(config)
 end
 
 ---Load the circles.nvim plugin
----@param config Cfg
+---@param config circles.Config
 M.load = function(config)
   override_devicons(config)
   override_nvimtree_icons(config)
