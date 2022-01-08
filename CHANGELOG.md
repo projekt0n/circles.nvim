@@ -11,11 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - docs: Filled circles docs added inside README.md
 - docs: make code readable
-- refactor: all functions and varaible in `snake_case`
+- refactor: all functions and variable in `snake_case`
+- module export refactored
 
 ### Changed
 
 - docs: logo removed from `README.md`
+- Formatter changed to `LuaForamatter` -> `StyLua`
 
 ## [v1.0.0] - 23 Aug 2021
 
