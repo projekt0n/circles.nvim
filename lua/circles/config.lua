@@ -1,3 +1,4 @@
+---@class circles.Config
 local config = {}
 
 ---@class circles.ConfigSchema
