@@ -1,13 +1,18 @@
 # circles.nvim
 
-uniform icons for neovim
+uniform icons for neovim.
 
 [![Linting](https://github.com/projekt0n/circles.nvim/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions)
 [![Twitter](https://img.shields.io/badge/twitter-projekt0n-blue)](https://twitter.com/projekt0n)
 
+## Notices
+
+- **2022-05-29**: Due to [nvim-tree major changes](http://bit.ly/3vIpEOJ), this plugin is **unable to override**
+  files & folder icons with `vim.g`. Please check the [this](#configure-with-nvim-tree) for the workaround.
+
 ## Features
 
-- Uniform icon replacement for [web-devicons](https://github.com/kyazdani42/nvim-web-devicons) & [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
+- Uniform icon replacement for [web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 - Customize lsp diagnostic virtual-text icon
 
 ## Requirements
@@ -22,7 +27,7 @@ uniform icons for neovim
 ```lua
 use {
   "projekt0n/circles.nvim",
-  requires = {{"kyazdani42/nvim-web-devicons"}, {"kyazdani42/nvim-tree.lua", opt = true}}
+  requires = {"kyazdani42/nvim-web-devicons"}
 }
 ```
 
@@ -44,7 +49,7 @@ If using [packer.nvim](https://github.com/wbthomason/packer.nvim) circles.nvim c
 ```lua
 use {
   "projekt0n/circles.nvim",
-  requires = {{"kyazdani42/nvim-web-devicons"}, {"kyazdani42/nvim-tree.lua", opt = true}},
+  requires = {"kyazdani42/nvim-web-devicons"},
   config = function()
     require("circles").setup()
   end
@@ -65,68 +70,73 @@ require("circles").setup({
 })
 ```
 
-## Screenshots 📺
+## Screenshots
 
 - Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
 - Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
 - Themes: [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme) & [ful1e5/onedark.nvim](https://github.com/ful1e5/onedark.nvim)
 - config: [ful1e5/dotfiles](https://github.com/ful1e5/dotfiles)
 
-<p align="center">
-  <img src="https://imgur.com/nPq5HZT.png" alt="circles.nvim preview"/>
-</p>
+### Configure with nvim-tree
 
 ```lua
-require("circles").setup({
-  icons = {
-    empty = "",
-    filled = "",
-    lsp_prefix = ""
+local icons = {
+  empty = "",
+  filled = "",
+  lsp_prefix = ""
+}
+
+require('nvim-tree').setup({
+  -- ...
+  renderer = {
+    icons = {
+      glyphs = {
+        default = icons.empty,
+        symlink = icons.empty,
+        folder = {
+          default = icons.empty,
+          open = icons.filled,
+          empty = icons.empty,
+          empty_open = icons.filled,
+          symlink = icons.empty,
+          symlink_open = icons.filled,
+        },
+      },
+    },
   },
+})
+
+require("circles").setup({
+  icons = icons,
   lsp = true
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/iJtbXo7.png" alt="circles.nvim filled circles preview"/>
-</p>
+![screenshot of circles.nvim with nvim-tree.lua](https://imgur.com/iJtbXo7.png)
 
 ### Neovim LSP diagnostic virtual-text icon
 
-```lua
-require("circles").setup({
-  lsp = false
-})
-```
-
-<p align="center">
-  <img src="https://imgur.com/0X4lKFW.png" alt="circles.nvim LSP virtual-text"/>
-</p>
+#### Custom Diagnostic Icon
 
 ```lua
 require("circles").setup({
   icons = {
+    -- ...
     lsp_prefix = ""
   },
   lsp = true
 })
 ```
 
-<p align="center">
-  <img src="https://imgur.com/Vlvlpr9.png" alt="circles.nvim Customize LSP virtual-text"/>
-</p>
+![screenshot of circles.nvim with Custom LSP virtual-text](https://imgur.com/Vlvlpr9.png)
 
-### [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+#### Disable Custom Diagnostic Icon
 
-<p align="center">
-  <img src="https://imgur.com/EN5CdtO.png" alt="circles.nvim with telescpe"/>
-</p>
+```lua
+require("circles").setup({
+  -- ...
+  lsp = false
+})
+```
 
-## Contributing
-
-Check [CONTRIBUTING.md](./CONTRIBUTING.md), any suggestions for features and contributions to the continuing code masterelopment can be made via the issue tracker or code contributions via a `Fork` & `Pull requests`.
-
-<!-- Ninja  -->
-<p align="center">
-  <h3 align="center">|| || ||</h1>
-</p>
+![screenshot of circles.nvim with disabled LSP virtual-text](https://imgur.com/0X4lKFW.png)

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+- GitHub Sponsors
+
+### Changed
+
+- refactor: plugin breakdown into one module
+- breaking-change: deprecated nvim-tree support
+
 ## [v1.0.1] - 11 Jan 2022
 
 ### Added
