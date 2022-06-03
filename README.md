@@ -3,12 +3,12 @@
 uniform icons for neovim.
 
 [![Linting](https://github.com/projekt0n/circles.nvim/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions)
-[![Twitter](https://img.shields.io/badge/twitter-projekt0n-blue)](https://twitter.com/projekt0n)
+[![Twitter](https://img.shields.io/badge/Notifications-twitter-blue)](https://twitter.com/projekt0n)
 
 ## Notices
 
 - **2022-05-29**: Due to [nvim-tree major changes](http://bit.ly/3vIpEOJ), this plugin is **unable to override**
-  files & folder icons with `vim.g`. Please check the [this](#configure-with-nvim-tree) for the workaround.
+  files & folder icons with `vim.g.nvim_tree_show_icons`. Please check the [this](#configure-with-nvim-tree) for the workaround.
 
 ## Features
 
@@ -60,11 +60,7 @@ Configuration can be passed to the setup function. Here is an example with most 
 
 ```lua
 require("circles").setup({
-  icons = {
-    empty = "",
-    filled = "",
-    lsp_prefix = ""
-  },
+  icons = { empty = "", filled = "", lsp_prefix = "" },
   -- override lsp_diagnostic virtual-text icon with `icons.lsp_prefix`
   lsp = true
 })
@@ -80,35 +76,18 @@ require("circles").setup({
 ### Configure with nvim-tree
 
 ```lua
-local icons = {
-  empty = "",
-  filled = "",
-  lsp_prefix = ""
-}
+local circles = require('circles')
+
+circles.setup({ icons = { empty = '', filled = '', lsp_prefix = '' } })
 
 require('nvim-tree').setup({
   -- ...
   renderer = {
+    -- ...
     icons = {
-      glyphs = {
-        default = icons.empty,
-        symlink = icons.empty,
-        folder = {
-          default = icons.empty,
-          open = icons.filled,
-          empty = icons.empty,
-          empty_open = icons.filled,
-          symlink = icons.empty,
-          symlink_open = icons.filled,
-        },
-      },
+      glyphs = circles.get_nvimtree_glyphs(),
     },
   },
-})
-
-require("circles").setup({
-  icons = icons,
-  lsp = true
 })
 ```
 
