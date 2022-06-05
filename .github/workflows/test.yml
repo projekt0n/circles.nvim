@@ -11,6 +11,7 @@ on:
 
 jobs:
   test:
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
@@ -24,19 +25,26 @@ jobs:
             "v0.7.0",
             "nightly",
           ]
-    runs-on: ubuntu-latest
+    name: test - nvim ${{ matrix.neovim_tag }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Setup Neovim
         uses: MunifTanjim/setup-neovim-action@v1
         with:
           tag: ${{ matrix.neovim_tag }}
+
+      - name: Neovim Version
+        run: nvim --version
+
+      # Installing plugin's dependencies and plenary.nvim
       - name: Prepare Neovim
         run: |
-          nvim --version
           git clone --depth 1 https://github.com/nvim-lua/plenary.nvim ~/.local/share/nvim/site/pack/vendor/start/plenary.nvim
           git clone --depth 1 https://github.com/kyazdani42/nvim-web-devicons ~/.local/share/nvim/site/pack/vendor/start/nvim-web-devicons
           ln -s $(pwd) ~/.local/share/nvim/site/pack/vendor/start
+
       - name: Run Tests
         run: make test
