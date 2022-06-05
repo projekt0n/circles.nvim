@@ -2,7 +2,8 @@
 
 uniform icons for neovim.
 
-[![Linting](https://github.com/projekt0n/circles.nvim/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions)
+[![lint](https://github.com/projekt0n/circles.nvim/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions/workflows/lint.yml)
+[![test](https://github.com/projekt0n/circles.nvim/actions/workflows/test.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions/workflows/test.yml)
 [![Twitter](https://img.shields.io/badge/Notifications-twitter-blue)](https://twitter.com/projekt0n)
 
 ## Notices

@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Sponsors
 - feat: `get_nvimtree_glyphs` & `get_config` functions init
 - feat: tests with [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- feat: [test](https://github.com/projekt0n/circles.nvim/actions/workflows/test.yml) GitHub Action init
 
 ### Changed
 
