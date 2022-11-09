@@ -7,19 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [v2.0.0] - 09 November 2022
+
 ### Added
 
 - GitHub Sponsors
 - feat: `get_nvimtree_glyphs` & `get_config` functions init
 - feat: tests with [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- feat: [test](https://github.com/projekt0n/circles.nvim/actions/workflows/test.yml) GitHub Action init
+- feat: [ci](https://github.com/projekt0n/circles.nvim/actions/workflows/ci.yml) GitHub Action init
 
 ### Changed
 
+- refactor: require [nvim-nightly](https://github.com/neovim/neovim/releases/tag/nightly)
+- fix: lsp diagnostic prefix icon assignment
 - refactor: plugin breakdown into one module
 - breaking-change: deprecated nvim-tree support
 
-## [v1.0.1] - 11 Jan 2022
+## [v1.0.1] - 11 January 2022
 
 ### Added
 
@@ -36,12 +40,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Linting options changed
 - liberapay team profile in liberapay
 
-## [v1.0.0] - 23 Aug 2021
+## [v1.0.0] - 23 August 2021
 
 ### Added
 
 - Initial release 🎊
 
-[unreleased]: https://github.com/projekt0n/circles.nvim/compare/v1.0.1...main
+[unreleased]: https://github.com/projekt0n/circles.nvim/compare/v2.0.0...main
+[v2.0.0]: https://github.com/projekt0n/circles.nvim/compare/v2.0.0...v1.0.1
 [v1.0.1]: https://github.com/projekt0n/circles.nvim/compare/v1.0.1...v1.0.0
 [v1.0.0]: https://github.com/projekt0n/circles.nvim/tree/v1.0.0

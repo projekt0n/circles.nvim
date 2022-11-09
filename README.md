@@ -2,13 +2,11 @@
 
 uniform icons for neovim.
 
-[![lint](https://github.com/projekt0n/circles.nvim/actions/workflows/lint.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions/workflows/lint.yml)
-[![test](https://github.com/projekt0n/circles.nvim/actions/workflows/test.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions/workflows/test.yml)
-[![Twitter](https://img.shields.io/badge/Notifications-twitter-blue)](https://twitter.com/projekt0n)
+[![ci](https://github.com/projekt0n/circles.nvim/actions/workflows/ci.yml/badge.svg)](https://github.com/projekt0n/circles.nvim/actions/workflows/ci.yml)
 
 ## Notices
 
-- **2022-05-29**: Due to [nvim-tree major changes](http://bit.ly/3vIpEOJ), this plugin is **unable to override**
+- **2022-05-29**: Due to [nvim-tree major changes](http://bit.ly/3vIpEOJ), circle.nvim is **unable to override**
   files & folder icons with `vim.g.nvim_tree_show_icons`. Please check the [this](#configure-with-nvim-tree) for the workaround.
 
 ## Features
@@ -18,7 +16,7 @@ uniform icons for neovim.
 
 ## Requirements
 
-- Neovim >= 0.5.0
+- [Neovim nightly](https://github.com/neovim/neovim/releases/tag/nightly)
 - Patched fonts ([Nerd Fonts](https://github.com/ryanoasis/nerd-fonts))
 
 ## Installation
@@ -69,10 +67,9 @@ require("circles").setup({
 
 ## Screenshots
 
-- Terminal: [kitty](https://sw.kovidgoyal.net/kitty)
-- Font: [Ubuntu Mono](https://design.ubuntu.com/font/)
-- Themes: [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme) & [ful1e5/onedark.nvim](https://github.com/ful1e5/onedark.nvim)
-- config: [ful1e5/dotfiles](https://github.com/ful1e5/dotfiles)
+- Terminal: [Konsole](https://konsole.kde.org/)
+- Font: [Fira Code](https://github.com/tonsky/FiraCode)
+- Colorscheme: [projekt0n/caret.nvim](https://github.com/projekt0n/caret.nvim)
 
 ### Configure with nvim-tree
 
@@ -92,7 +89,7 @@ require('nvim-tree').setup({
 })
 ```
 
-![screenshot of circles.nvim with nvim-tree.lua](https://imgur.com/iJtbXo7.png)
+![circles.nvim X nvim-tree.lua](https://imgur.com/iJtbXo7.png)
 
 ### Neovim LSP diagnostic virtual-text icon
 
@@ -108,7 +105,7 @@ require("circles").setup({
 })
 ```
 
-![screenshot of circles.nvim with Custom LSP virtual-text](https://imgur.com/Vlvlpr9.png)
+![circles.nvim X LSP virtual-text](https://imgur.com/Vlvlpr9.png)
 
 #### Disable Custom Diagnostic Icon
 
@@ -119,4 +116,4 @@ require("circles").setup({
 })
 ```
 
-![screenshot of circles.nvim with disabled LSP virtual-text](https://imgur.com/0X4lKFW.png)
+![circles.nvim X disabled LSP virtual-text](https://imgur.com/0X4lKFW.png)
