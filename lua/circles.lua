@@ -47,10 +47,11 @@ end
 
 ---override lsp diagnostic prefix icon
 local override_lsp_diagnostic_text = function()
-  vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = { prefix = vim.g.circles_lsp_prefix_icon },
-    signs = true,
-    update_in_insert = false,
+  vim.diagnostic.config({
+    virtual_text = {
+      -- source = "always",  -- Or "if_many"
+      prefix = vim.g.circles_lsp_prefix_icon,
+    },
   })
 end
 
