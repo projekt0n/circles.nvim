@@ -11,7 +11,7 @@ uniform icons for neovim.
 
 ## Features
 
-- Uniform icon replacement for [web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- Uniform icon replacement for [web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - Customize lsp diagnostic virtual-text icon
 
 ## Requirements
@@ -26,14 +26,14 @@ uniform icons for neovim.
 ```lua
 use {
   "projekt0n/circles.nvim",
-  requires = {"kyazdani42/nvim-web-devicons"}
+  requires = {"nvim-tree/nvim-web-devicons"}
 }
 ```
 
 ### [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'projekt0n/circles.nvim'
 ```
 
@@ -48,7 +48,7 @@ If using [packer.nvim](https://github.com/wbthomason/packer.nvim) circles.nvim c
 ```lua
 use {
   "projekt0n/circles.nvim",
-  requires = {"kyazdani42/nvim-web-devicons"},
+  requires = {"nvim-tree/nvim-web-devicons"},
   config = function()
     require("circles").setup()
   end

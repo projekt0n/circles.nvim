@@ -10,6 +10,8 @@ local icons = {
 ---@class circles.ConfigSchema
 ---@field icons circles.ConfigSchema.Icons
 ---@field lsp boolean
+
+---@type circles.ConfigSchema
 local config = {
   icons = icons,
   lsp = true,
@@ -29,7 +31,7 @@ local apply_configuration = function(user_config)
   end
 end
 
----override one icon to 'kyazdani42/nvim-web-devicons' plugin
+---override icons to 'nvim-tree/nvim-web-devicons' plugin
 ---@param user_icons circles.ConfigSchema.Icons
 local override_devicons = function(user_icons)
   local installed, dev_icons = pcall(require, 'nvim-web-devicons')
@@ -41,7 +43,7 @@ local override_devicons = function(user_icons)
       icon.icon = user_icons.empty
     end
   else
-    error("circles.nvim required 'kyazdani42/nvim-web-devicons'")
+    error("circles.nvim required 'nvim-tree/nvim-web-devicons'")
   end
 end
 
@@ -72,8 +74,8 @@ M.setup = function(user_config)
   end
 end
 
----return uniform icons for nvimtree.icons.glyphs
----@return table<string, string>
+---Return uniform icons for nvimtree.icons.glyphs
+---@return table<string, string|table<string, string>>
 M.get_nvimtree_glyphs = function()
   return {
     default = config.icons.empty,
@@ -89,7 +91,7 @@ M.get_nvimtree_glyphs = function()
   }
 end
 
----return config of circles.nvim
+---Return config of circles.nvim
 ---@return circles.ConfigSchema
 M.get_config = function()
   return config
