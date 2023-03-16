@@ -52,7 +52,7 @@ local override_lsp_diagnostic_text = function()
   vim.diagnostic.config({
     virtual_text = {
       -- source = "always",  -- Or "if_many"
-      prefix = vim.g.circles_lsp_prefix_icon,
+      prefix = config.icons.lsp_prefix,
     },
   })
 end
@@ -68,8 +68,6 @@ M.setup = function(user_config)
 
   vim.g.circles_lsp_prefix_icon = nil
   if config.lsp then
-    -- useful for test
-    vim.g.circles_lsp_prefix_icon = config.icons.lsp_prefix
     override_lsp_diagnostic_text()
   end
 end
