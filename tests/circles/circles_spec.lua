@@ -21,6 +21,30 @@ describe('circles.nvim', function()
     end
   end
 
+  local make_error = function(msg, x1, y1, x2, y2, source, code)
+    return {
+      lnum = x1,
+      col = y1,
+      end_lnum = x2,
+      end_col = y2,
+      message = msg,
+      severity = vim.diagnostic.severity.ERROR,
+      source = source,
+      code = code,
+    }
+  end
+
+  local diagnostic_ns = vim.api.nvim_create_namespace('diagnostic_spec')
+  local diagnostic_bufnr = vim.api.nvim_create_buf(true, false)
+  local diagnostics = { make_error('Some error', 0, 0, 0, 0) }
+
+  local get_virt_text = function(ns)
+    ns = vim.diagnostic.get_namespace(ns)
+    local virt_text_ns = ns.user_data.virt_text_ns
+    local extmarks = vim.api.nvim_buf_get_extmarks(diagnostic_bufnr, virt_text_ns, 0, -1, { details = true })
+    return extmarks[1][4].virt_text[2][1]
+  end
+
   local default_config = circles.get_config()
   local default_icons = default_config.icons
   local custom_icons = { empty = '', filled = '', lsp_prefix = '' }
@@ -67,16 +91,27 @@ describe('circles.nvim', function()
   end)
 
   it('can overriding lsp virtual-text prefix', function()
-    assert.are.same(vim.g.circles_lsp_prefix_icon, default_icons.lsp_prefix)
+    vim.diagnostic.set(diagnostic_ns, diagnostic_bufnr, diagnostics, {})
+    local virt_text = get_virt_text(diagnostic_ns)
+
+    assert.are.same(default_icons.lsp_prefix .. ' Some error', virt_text)
   end)
 
   it('can overriding custom lsp virtual-text prefix', function()
     circles.setup({ icons = custom_icons, lsp = true })
-    assert.are.same(vim.g.circles_lsp_prefix_icon, custom_icons.lsp_prefix)
+
+    vim.diagnostic.set(diagnostic_ns, diagnostic_bufnr, diagnostics, {})
+    local virt_text = get_virt_text(diagnostic_ns)
+
+    assert.are.same(custom_icons.lsp_prefix .. ' Some error', virt_text)
   end)
 
-  it('can disable Lsp virtual-text prefix', function()
+  it('can disable custom prefix override in diagnostics', function()
     circles.setup({ lsp = false })
-    assert.is_nil(vim.g.circles_lsp_prefix_icon)
+
+    vim.diagnostic.set(diagnostic_ns, diagnostic_bufnr, diagnostics, {})
+    local virt_text = get_virt_text(diagnostic_ns)
+
+    assert.are.same('■ Some error', virt_text)
   end)
 end)
