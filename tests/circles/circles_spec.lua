@@ -49,10 +49,6 @@ describe('circles.nvim', function()
   local default_icons = default_config.icons
   local custom_icons = { empty = '', filled = '', lsp_prefix = '' }
 
-  before_each(function()
-    circles.setup({ icons = default_icons, lsp = true })
-  end)
-
   --------
   -- Tests
   --------
@@ -62,42 +58,49 @@ describe('circles.nvim', function()
 
   it('can return default config', function()
     circles.setup()
+
     assert.are.equal(circles.get_config(), default_config)
   end)
 
   it('can return user config', function()
-    local user_config = { icons = custom_icons, lsp = false }
-    circles.setup(user_config)
+    circles.setup({ icons = custom_icons, lsp = false })
+
     assert.are.equal(circles.get_config().icons, custom_icons)
     assert.are.equal(circles.get_config().lsp, false)
   end)
 
   it("can override 'default_icon' in nvim-web-devicons", function()
+    circles.setup()
+
     assert_default_icon(default_icons.empty)
   end)
 
   it("can override custom 'default_icon' in nvim-web-devicons", function()
     circles.setup({ icons = custom_icons })
+
     assert_default_icon(custom_icons.empty)
   end)
 
-  it('can override nvim-web-devicons', function()
+  it('can override icons to nvim-web-devicons plugin', function()
+    circles.setup()
     assert_icons(default_icons.empty)
   end)
 
-  it('can override custom nvim-web-devicons', function()
+  it('can override custom icons to nvim-web-devicons plugin', function()
     circles.setup({ icons = custom_icons })
     assert_icons(custom_icons.empty)
   end)
 
-  it('can overriding lsp virtual-text prefix', function()
+  it('can override diagnostics virtual-text prefix', function()
+    circles.setup()
+
     vim.diagnostic.set(diagnostic_ns, diagnostic_bufnr, diagnostics, {})
     local virt_text = get_virt_text(diagnostic_ns)
 
     assert.are.same(default_icons.lsp_prefix .. ' Some error', virt_text)
   end)
 
-  it('can overriding custom lsp virtual-text prefix', function()
+  it('can override custom diagnostics virtual-text prefix', function()
     circles.setup({ icons = custom_icons, lsp = true })
 
     vim.diagnostic.set(diagnostic_ns, diagnostic_bufnr, diagnostics, {})
@@ -106,7 +109,7 @@ describe('circles.nvim', function()
     assert.are.same(custom_icons.lsp_prefix .. ' Some error', virt_text)
   end)
 
-  it('can disable custom prefix override in diagnostics', function()
+  it('can disable custom diagnostics virtual-text prefix', function()
     circles.setup({ lsp = false })
 
     vim.diagnostic.set(diagnostic_ns, diagnostic_bufnr, diagnostics, {})
