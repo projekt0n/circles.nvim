@@ -53,6 +53,8 @@ describe('circles.nvim', function()
   -- Tests
   --------
   it('can load nvim-web-devicons', function()
+    circles.setup()
+
     assert.is_true(devicons.has_loaded())
   end)
 
@@ -70,19 +72,17 @@ describe('circles.nvim', function()
   end)
 
   it("can override 'default_icon' in nvim-web-devicons", function()
-    circles.setup()
-
+    circles.setup({ icons = default_icons })
     assert_default_icon(default_icons.empty)
   end)
 
   it("can override custom 'default_icon' in nvim-web-devicons", function()
     circles.setup({ icons = custom_icons })
-
     assert_default_icon(custom_icons.empty)
   end)
 
   it('can override icons to nvim-web-devicons plugin', function()
-    circles.setup()
+    circles.setup({ icons = default_icons })
     assert_icons(default_icons.empty)
   end)
 
