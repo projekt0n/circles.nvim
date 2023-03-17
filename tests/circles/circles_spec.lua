@@ -110,7 +110,7 @@ describe('circles.nvim', function()
   end)
 
   it('can disable custom diagnostics virtual-text prefix', function()
-    circles.setup({ lsp = false })
+    circles.setup({ icons = default_icons, lsp = false })
 
     vim.diagnostic.set(diagnostic_ns, diagnostic_bufnr, diagnostics, {})
     local virt_text = get_virt_text(diagnostic_ns)
