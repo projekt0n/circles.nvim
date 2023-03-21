@@ -1,19 +1,18 @@
 local M = {}
 
----@class circles.ConfigSchema.Icons
-local icons = {
-  empty = '',
-  filled = '',
-  lsp_prefix = '',
-}
+---@class circles.Icons
+---@field empty string
+---@field filled string
+---@field lsp_prefix string
 
 ---@class circles.ConfigSchema
----@field icons circles.ConfigSchema.Icons
----@field lsp boolean
-
----@type circles.ConfigSchema
+---@field icons circles.Icons
 local config = {
-  icons = icons,
+  icons = {
+    empty = '',
+    filled = '',
+    lsp_prefix = '',
+  },
   lsp = true,
 }
 
@@ -32,7 +31,7 @@ local apply_configuration = function(user_config)
 end
 
 ---override icons to 'nvim-tree/nvim-web-devicons' plugin
----@param user_icons circles.ConfigSchema.Icons
+---@param user_icons circles.Icons
 local override_devicons = function(user_icons)
   local installed, dev_icons = pcall(require, 'nvim-web-devicons')
   if installed then
@@ -47,16 +46,6 @@ local override_devicons = function(user_icons)
   end
 end
 
----override lsp diagnostic prefix icon
-local override_lsp_diagnostic_text = function()
-  vim.diagnostic.config({
-    virtual_text = {
-      -- source = "always",  -- Or "if_many"
-      prefix = config.icons.lsp_prefix,
-    },
-  })
-end
-
 ---Setup your uniform icons for neovim
 ---@param user_config circles.ConfigSchema|nil
 M.setup = function(user_config)
@@ -66,9 +55,20 @@ M.setup = function(user_config)
 
   override_devicons(config.icons)
 
-  vim.g.circles_lsp_prefix_icon = nil
   if config.lsp then
-    override_lsp_diagnostic_text()
+    vim.diagnostic.config({
+      virtual_text = {
+        prefix = config.icons.lsp_prefix,
+      },
+    })
+  else
+    -- An else condition is required here because the default diagnostic icon
+    -- may not be retrievable due to `vim` being a global variable.
+    vim.diagnostic.config({
+      virtual_text = {
+        prefix = '■',
+      },
+    })
   end
 end
 
