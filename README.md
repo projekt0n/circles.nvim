@@ -6,6 +6,11 @@ uniform icons for neovim.
 
 ## Notices
 
+<!-- If you're interested, you can learn more about "sponsor-spotlight" on
+ https://dev.to/ful1e5/lets-give-recognition-to-those-supporting-our-work-on-github-sponsors-b00 -->
+
+![shoutout-sponsors](https://sponsor-spotlight.vercel.app/sponsor?login=ful1e5)
+
 - **2022-05-29**: Due to [nvim-tree major changes](http://bit.ly/3vIpEOJ), circle.nvim is **unable to override**
   files & folder icons with `vim.g.nvim_tree_show_icons`. Please check the [this](#configure-with-nvim-tree) for the workaround.
 
@@ -16,7 +21,8 @@ uniform icons for neovim.
 
 ## Requirements
 
-- [Neovim nightly](https://github.com/neovim/neovim/releases/tag/nightly)
+- neovim>=0.8.0
+- [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - Patched fonts ([Nerd Fonts](https://github.com/ryanoasis/nerd-fonts))
 
 ## Installation
@@ -69,7 +75,7 @@ require("circles").setup({
 
 - Terminal: [Konsole](https://konsole.kde.org/)
 - Font: [Fira Code](https://github.com/tonsky/FiraCode)
-- Colorscheme: [projekt0n/caret.nvim](https://github.com/projekt0n/caret.nvim)
+- Colorscheme: [ful1e5/onedark.nvim](https://github.com/ful1e5/onedark.nvim) and [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme)
 
 ### Configure with nvim-tree
 
