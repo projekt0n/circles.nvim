@@ -64,11 +64,15 @@ M.setup = function(user_config)
   else
     -- An else condition is required here because the default diagnostic icon
     -- may not be retrievable due to `vim` being a global variable.
-    vim.diagnostic.config({
-      virtual_text = {
-        prefix = '■',
-      },
-    })
+    local is_enable = vim.diagnostic.config().virtual_text ~= false
+
+    if is_enable then
+      vim.diagnostic.config({
+        virtual_text = {
+          prefix = '■',
+        },
+      })
+    end
   end
 end
 
